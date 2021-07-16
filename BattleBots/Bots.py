@@ -1,3 +1,5 @@
+import random
+
 class Bots:
     def __init__(self, botName, botHealth, botAttackDamage, botRegen):
         self.name = botName
@@ -15,7 +17,7 @@ class Bots:
 
     def heal(self):
         self.health += self.regen
-        print(self.name + " regenerates")
+        print(self.name + " regenerates: " + str(self.regen))
 
     def get_status(self, opponent):
         print(self.name + "'s health is " +  str(self.health) + "\t\t\t|\t\t" + opponent.name + "'s health is " + str(opponent.health) + ".")
@@ -23,8 +25,8 @@ class Bots:
         print(self.name + "'s attack is  worth " + str(self.attackDamage) + "\t\t|\t\t" + opponent.name + "'s attack is worth " + str(
         opponent.attackDamage) + ".")
 
-bot1 = Bots("Coffee Turtle", 15, 3, 0)
-bot2 = Bots("Tea Turtle", 10, 6, 0)
+bot1 = Bots("Coffee Turtle", 15, 3, 5)
+bot2 = Bots("Tea Turtle", 10, 6, 5)
 
 
 print(bot1.name)
@@ -33,15 +35,14 @@ print(bot2.name)
 bot2.get_status(bot1)
 
 bot1.attack(bot2)
+bot2.get_status(bot1)
+bot2.heal()
 
 bot2.get_status(bot1)
 
 bot2.attack(bot1)
 
-
 bot2.get_status(bot1)
-
-bot2.heal()
 
 bot2.get_status(bot1)
 
